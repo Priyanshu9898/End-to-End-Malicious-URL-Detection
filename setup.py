@@ -18,7 +18,6 @@ def get_requirements(file_path: str) -> List[str]:
 
     return requirements
 
-
 setup(
     name = "Malicious URL Detection",
     author = "Priyanshu Malaviya",
