@@ -1,1 +1,1 @@
-export const predictURL = "http://maliciousurldetection-env.eba-2tukgix5.ap-south-1.elasticbeanstalk.com/api/predict";
+export const predictURL = "https://maliciousurldetection-env.eba-2tukgix5.ap-south-1.elasticbeanstalk.com/api/predict";
