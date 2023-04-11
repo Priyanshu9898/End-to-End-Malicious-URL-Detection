@@ -1,1 +1,1 @@
-export const predictURL = "http://127.0.0.1:5000/api/predict";
+export const predictURL = "http://maliciousurldetection-env.eba-2tukgix5.ap-south-1.elasticbeanstalk.com/api/predict";
