@@ -9,5 +9,4 @@ dill
 python-dotenv
 flask-cors
 googlesearch-python
-tld
 -e .

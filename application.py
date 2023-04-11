@@ -15,7 +15,7 @@ with open(os.path.join(model_path, 'Decision Tree.pkl'), 'rb') as f:
 
 pred = PredictPipeline()
 
-cors = CORS(application, resources={r"/api/*": {"origins": "http://localhost:3000"}})
+cors = CORS(application, resources={r"/api/*": {"origins": "https://main.d3ic9i6whelr8c.amplifyapp.com"}})
 
 @application.route('/api/predict', methods=['POST'])
 def predict():
@@ -43,4 +43,4 @@ def predict():
     return jsonify({'prediction': res})
 
 if __name__ == '__main__':
-    application.run(debug=True)
+    application.run(host="0.0.0.0")
