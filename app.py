@@ -4,7 +4,7 @@ import pickle
 import os
 from src.pipeline.predict_pipeline import PredictPipeline
 
-application = Flask(__name__)
+app = Flask(__name__)
 
 # get the path to the models folder
 model_path = "./artifacts/Best Model"
@@ -13,11 +13,17 @@ model_path = "./artifacts/Best Model"
 with open(os.path.join(model_path, 'Decision Tree.pkl'), 'rb') as f:
     model = pickle.load(f)
 
+# print(model)
 pred = PredictPipeline()
 
-cors = CORS(application, resources={r"/api/*": {"origins": "https://main.d3ic9i6whelr8c.amplifyapp.com"}})
+CORS(app, origins='https://main.d3ic9i6whelr8c.amplifyapp.com')
 
-@application.route('/api/predict', methods=['POST'])
+# cors = CORS(application, resources={r"/api/*": {"origins": "https://main.d3ic9i6whelr8c.amplifyapp.com"}})
+@app.route("/", methods=['GET'])
+def index():
+    return "<h1>Hello World!</h1>"
+
+@app.route('/api/predict', methods=['POST'])
 def predict():
     url = request.json['url']
     print("URL: " + url)
@@ -43,4 +49,4 @@ def predict():
     return jsonify({'prediction': res})
 
 if __name__ == '__main__':
-    application.run(host="0.0.0.0")
+   app.run()
