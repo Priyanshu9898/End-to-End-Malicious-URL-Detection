@@ -16,9 +16,10 @@ with open(os.path.join(model_path, 'Decision Tree.pkl'), 'rb') as f:
 # print(model)
 pred = PredictPipeline()
 
-CORS(app, origins='https://main.d3ic9i6whelr8c.amplifyapp.com')
+# CORS(app, origins='https://main.d3ic9i6whelr8c.amplifyapp.com')
 
-# cors = CORS(application, resources={r"/api/*": {"origins": "https://main.d3ic9i6whelr8c.amplifyapp.com"}})
+cors = CORS(app, resources={r"/api/*": {"origins": "https://main.de8n33yv46tnz.amplifyapp.com"}})
+
 @app.route("/", methods=['GET'])
 def index():
     return "<h1>Hello World!</h1>"

@@ -1,1 +1,1 @@
-export const predictURL = "https://malicious-url-detection-4bur.onrender.com/api/predict";
+export const predictURL = "https://malicious-url-detection-b4qu.onrender.com/api/predict";
