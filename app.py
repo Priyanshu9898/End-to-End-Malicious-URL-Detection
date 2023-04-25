@@ -16,16 +16,17 @@ with open(os.path.join(model_path, 'Decision Tree.pkl'), 'rb') as f:
 # print(model)
 pred = PredictPipeline()
 
-# CORS(app, origins='https://main.d3ic9i6whelr8c.amplifyapp.com')
-
-cors = CORS(app, resources={r"/api/*": {"origins": "https://main.de8n33yv46tnz.amplifyapp.com"}})
+# Enable CORS with all origins
+cors = CORS(app, resources={r"/*": {"origins": "*"}})
 
 @app.route("/", methods=['GET'])
 def index():
     return "<h1>Hello World!</h1>"
 
 @app.route('/api/predict', methods=['POST'])
+@cross_origin()
 def predict():
+    
     url = request.json['url']
     print("URL: " + url)
     
@@ -47,7 +48,9 @@ def predict():
     else:
         res = 'malware'
 
-    return jsonify({'prediction': res})
+    response = jsonify({'prediction': res})
+    
+    return response
 
 if __name__ == '__main__':
    app.run()
